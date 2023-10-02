@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Display Tips
+        </title>
+    </head>
+ 
+<body>
+
+<h2>Uday Singamala shows tip amounts</h2>
+
+<form>
+    <label for="form1_tip">Enter base amount</label>
+    <input type ="number" id="form1_tip" name="form1_tip" value="50"> <br>
+
+    <label for="form1_conv">Enter the tip percent </label>
+    <input type ="number" id="form1_conv" name="form1_conv" autofocus value="15"> <br>
+
+    <input type="button" onclick="tips()" value="Show tip">
+</form>
+
+
+<p id="result"> Tip :</p>
+
+<script> 
+
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+
+function tips() {
+    var value1 = parseInt(document.getElementById("form1_tip").value);
+    var value2 = parseInt(document.getElementById("form1_conv").value);
+
+    let myOutput = "";
+
+    for (let i = 0; i < 5; i++) {
+        var tipPercent = value2 + i * 4;
+        var tipAmount = (value1 * tipPercent) / 100;
+        myOutput += `${tipPercent - i * 4}% is ${tipAmount.toFixed(2)}; `;
+    }
+
+    var resultTip = document.getElementById("result");
+
+    resultTip.textContent = "Tips are: " + myOutput;
+}
+
+
+
+</script>
+
+</body>
+</html> 
