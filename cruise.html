@@ -26,13 +26,13 @@
   <p id = "result">result</p>
 
 <form>
-    <label for="form1_age">What is your age </label>
-    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+    <label for="form1_age">Enter the number of days </label>
+    <input type ="text" id="days" name="form1_age" value="days"> <br>
 
-    <label for="form1_nick">What is your nickname </label>
-    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+    <label for="form1_nick">Enter price</label>
+    <input type ="text" id="price" name="form1_nick" autofocus> <br>
 
-    <input type="button" onclick="resolveForm()" value="Get values from form">
+    <input type="button" onclick="updateCruise()" value="Update the cruise">
 </form>
 
 
@@ -66,6 +66,18 @@ function resolveForm (){
     } else {
         out.innerHTML = "Values were not confirmed"
     }
+}
+
+function updateCruise() {
+
+    my_cruise = {};
+    let days = document.getElementById("days").value;
+    let price = document.getElementById("price").value;
+    my_cruise["days"] = days;
+    my_cruise["price"] = price;
+    const resultElement = document.getElementById("result");
+    resultElement.textContent = "Cruise Selection: " + JSON.stringify(my_cruise);
+
 }
 </script>
 
