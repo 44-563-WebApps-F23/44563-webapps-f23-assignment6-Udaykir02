@@ -23,6 +23,24 @@
 
 <p id="result"> Tip :</p>
 
+<br>
+
+
+<form>
+    <input type="radio" id="rg1_red"  name = "op" onclick="chooseOp()" value="sum" >
+    <label for="rg1_red">Sum</label></br>
+  
+    <input type="radio" id="rg1_blue" name = "op" onclick="chooseOp()" value="diff">
+    <label for="rg1_blue">diff</label></br>
+  
+    <input type="radio" id="rg1_green" name = "op" onclick="chooseOp()" value="prod">
+    <label for="rg1_green">mult</label></br>
+
+    <input type="button" onclick="resolveRadio()" value="Get values from radio group">
+  </form>
+
+  <p id = "result_1">result</p>
+
 <script> 
 
 function resolveForm (){
@@ -54,6 +72,25 @@ function tips() {
     var resultTip = document.getElementById("result");
 
     resultTip.textContent = "Tips are: " + myOutput;
+}
+
+function chooseOp(){
+    let value1 = parseInt(document.getElementById("form1_tip").value);
+    let value2 = parseInt(document.getElementById("form1_conv").value);
+
+    operator = document.querySelector('input[name = "op"]:checked').value;
+
+    if(operator == "sum"){
+        document.getElementById("result_1").innerHTML = "Sum of " + value1 + " and " + value2 + " is " + (value1+value2);
+    }
+    else if(operator == "diff"){
+        document.getElementById("result_1").innerHTML = "diff of " + value1 + " and " + value2 + " is " + (value1-value2);
+    }
+    else{
+        document.getElementById("result_1").innerHTML = "product of " + value1 + " and " + value2 + " is " + (value1*value2);
+    }
+
+
 }
 
 
